@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "31667697927",
+    "project_id": "chat-dual-c2785",
+    "storage_bucket": "chat-dual-c2785.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31667697927:android:24b66e9ed9e99b46fc6da2",
+        "android_client_info": {
+          "package_name": "com.example.firebase_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31667697927-3te0h24r5c4qqq0csc3bb7a971q61ilf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-l7j9A7I_69MXu48-rO7zOjyfLXStg8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31667697927-3te0h24r5c4qqq0csc3bb7a971q61ilf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
