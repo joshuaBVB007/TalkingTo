@@ -21,16 +21,12 @@ import java.util.ArrayList;
 
 public class Menu extends AppCompatActivity {
     //es la lista que se muestra en frgamnet de chat
-    static ArrayList<Chat> lista_chats=new ArrayList<>();
-
-
-    public static ArrayList<String> Lista_contraseñas=new ArrayList<String>();
+    public static ArrayList<Chat> lista_chats=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
 
         BottomNavigationView navView = findViewById(R.id.btn);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -40,6 +36,7 @@ public class Menu extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
+        //Ingresamos todos los chats del muro al cargar el menu
         ingresarChats();
 
     }
@@ -54,7 +51,6 @@ public class Menu extends AppCompatActivity {
                     for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                         Chat dato=snapshot.getValue(Chat.class);
                         lista_chats.add(dato);
-
                     }
                 }
                 Log.i("T", "onDataChange: "+ lista_chats.size());
