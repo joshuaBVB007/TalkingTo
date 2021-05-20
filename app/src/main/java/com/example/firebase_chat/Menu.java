@@ -20,9 +20,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Menu extends AppCompatActivity {
-
+    //es la lista que se muestra en frgamnet de chat
     static ArrayList<Chat> lista_chats=new ArrayList<>();
-    static ArrayList<String> Lista_contraseñas=new ArrayList<String>();
+
+
+    public static ArrayList<String> Lista_contraseñas=new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

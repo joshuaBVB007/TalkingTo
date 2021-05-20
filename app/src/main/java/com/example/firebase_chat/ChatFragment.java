@@ -1,4 +1,4 @@
-package com.example.firebase_chat.fragments;
+package com.example.firebase_chat;
 
 import android.os.Bundle;
 
@@ -8,14 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.firebase_chat.R;
-
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link chatFragment#newInstance} factory method to
+ * Use the {@link ChatFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class chatFragment extends Fragment {
+public class ChatFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +24,7 @@ public class chatFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public chatFragment() {
+    public ChatFragment() {
         // Required empty public constructor
     }
 
@@ -39,8 +37,8 @@ public class chatFragment extends Fragment {
      * @return A new instance of fragment chatFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static chatFragment newInstance(String param1, String param2) {
-        chatFragment fragment = new chatFragment();
+    public static ChatFragment newInstance(String param1, String param2) {
+        ChatFragment fragment = new ChatFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

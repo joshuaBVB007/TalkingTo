@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/muroFragment"
-        android:name="com.example.firebase_chat.muroFragment"
+        android:name="com.example.firebase_chat.MiMuroFragment"
         android:label="fragment_muro"
         tools:layout="@layout/fragment_muro" />
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.example.firebase_chat.fragments.chatFragment"
+        android:name="com.example.firebase_chat.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
     <fragment
         android:id="@+id/otroFragment"
-        android:name="com.example.firebase_chat.OtroFragment"
+        android:name="com.example.firebase_chat.CrearReunionFragment"
         android:label="fragment_otro"
-        tools:layout="@layout/fragment_otro" />
+        tools:layout="@layout/fragment_crear_reunion" />
 </navigation>

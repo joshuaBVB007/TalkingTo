@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import com.example.firebase_chat.Adaptador.MyAdapterChat;
 
 
-public class muroFragment extends Fragment {
+public class MiMuroFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

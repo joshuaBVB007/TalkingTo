@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Item"
-        android:icon="@mipmap/ic_launcher"
+    <item android:title="Mi muro"
+        android:icon="@drawable/ic_reunion_de_negocios"
         android:id="@+id/muroFragment"/>
 
-    <item android:title="Item"
+    <item android:title="Chats"
         android:id="@+id/chatFragment"
-        android:icon="@drawable/ic_launcher_foreground"/>
+        android:icon="@drawable/ic_chat"/>
 
-    <item android:title="Item"
+    <item android:title="Crear reunion"
         android:id="@+id/otroFragment"
-        android:icon="@drawable/ic_launcher_foreground"/>
+        android:icon="@drawable/ic_pluma"/>
 </menu>
