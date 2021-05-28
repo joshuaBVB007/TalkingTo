@@ -16,6 +16,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.firebase_chat.ChatFragment;
 import com.example.firebase_chat.Menu;
 import com.example.firebase_chat.R;
 import com.example.firebase_chat.WindowsChat;
@@ -60,6 +61,9 @@ public class MyAdapterChatMuro extends RecyclerView.Adapter<MyAdapterChatMuro.My
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //si la contraseña introducida por el usuario es igual al dato contraseña del recycler entras
                         if(input.getText().toString().equals(dato.contrasena_reu)){
+
+                            //Aqui necesitamos agregar el chat desbloqueado
+                            ChatFragment.lista_chats_desbloqueados.add(dato.getNombre_reu());
 
                             AppCompatActivity activity = (AppCompatActivity)v.getContext();
                             Intent intent=new Intent(activity.getApplication(),WindowsChat.class);
