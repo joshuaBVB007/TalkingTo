@@ -8,6 +8,13 @@ import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    /*
+    #########################################################################
+    ######## ESTE ACTIVITY MUESTRA LA PANTALLA DE CARGA DE MI APP ###########
+    #########################################################################
+    */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

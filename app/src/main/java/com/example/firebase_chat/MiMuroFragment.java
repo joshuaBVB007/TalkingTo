@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.firebase_chat.Adaptador.MyAdapterChat;
+import com.example.firebase_chat.Adaptador.MyAdapterChatMuro;
 
 
 public class MiMuroFragment extends Fragment {
@@ -19,14 +19,13 @@ public class MiMuroFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-       View V=inflater.inflate(R.layout.fragment_muro, container, false);
-
+        /*Lo unico que hace este fragment es lanzar nuestra vista que contiene todas las conversaciones
+        * de esta aplicaciony que se reflejan en el muro*/
+        View V=inflater.inflate(R.layout.fragment_muro, container, false);
         RecyclerView r=V.findViewById(R.id.recy_muro);
-        MyAdapterChat adapter=new MyAdapterChat(getContext(),Menu.lista_chats);
+        MyAdapterChatMuro adapter=new MyAdapterChatMuro(getContext(),Menu.lista_chats);
         r.setAdapter(adapter);
         r.setLayoutManager(new LinearLayoutManager(getContext()));
-
-
-       return V;
+        return V;
     }
 }

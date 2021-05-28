@@ -14,6 +14,8 @@ import com.example.firebase_chat.fichero_chat.Chat;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 
 public class CrearReunionFragment extends Fragment {
     View V;
@@ -38,13 +40,18 @@ public class CrearReunionFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Menu.lista_chats.clear();
-                String nom_chat=nom.getText().toString();
+                String nombre_del_chat=nom.getText().toString();
                 String pass_chat=pass.getText().toString();
-                //creamos el json padre
-                mData.child("conversaciones").child(pass_chat).setValue(new Chat(nom_chat,pass_chat));
-                //creamos la conversacion interna
-                mData.child("conversaciones").child(pass_chat).child(pass_chat).child("Bienvenidos").setValue("Hola Bienvenidos");
-                Menu.Lista_contraseñas.add(pass_chat);
+
+                //Creamos el chat en forebase con el nombre de que le de el usuario
+                mData.child("conversaciones").child(nombre_del_chat).setValue(new Chat(nombre_del_chat,pass_chat));
+
+                /*creamos el chat interno:contiene las propiedades de mi chat que son nombre,clavey la conversacion
+                interna que siempre se llamará mensajes mas un json hijo que se llama Bienvenidos y un objeto que es mi
+                mensaje inicial para que el json se cree*/
+                mData.child("conversaciones").child(nombre_del_chat)
+                        .child("Mensajes").child("Bienvenidos").setValue(new Chat(nombre_del_chat,"Default","Default"));
+
             }
         });
 

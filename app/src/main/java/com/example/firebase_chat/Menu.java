@@ -42,6 +42,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void ingresarChats(){
+        //PARA DESCARGAR LOS CHATS Y RELLENAR LA LISTA
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("conversaciones");
         myRef.addValueEventListener(new ValueEventListener() {
