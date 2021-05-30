@@ -1,4 +1,17 @@
-Aqui establezco lo que queda por hacer en esta app:
--meter mensajes en una misma conversacion
--borrar en firebase y que se borre tambien en la app.
+To do :
+
+-borrar en firebase y que se borre tambien en la app la conversacion.
 -permitir borrar mensajes en el chat
+-crear un buscador para los chats en el muro y en el visualizador de chats desbloqueados.
+-permitir solo 200 letras por mensaje
+-agregar animaciones lottie
+
+Extras:
+-añadir reacciones:me gusta,no me gusta,me sorprende,etc.
+
+
+Done :
+-Chats ya no se repiten
+-He ordenado el codigo para que este mas limpio
+-Los mensajes se introducen en la conversacion que corresponde
+-puntero que baje al haber muchos chats

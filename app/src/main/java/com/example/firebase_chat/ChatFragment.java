@@ -1,5 +1,6 @@
 package com.example.firebase_chat;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,23 +13,26 @@ import android.view.ViewGroup;
 
 import com.example.firebase_chat.Adaptador.MyAdapterChatMuro;
 import com.example.firebase_chat.Adaptador.MyAdapterChatsDesbloqueados;
+import com.example.firebase_chat.DB.ChatFavoritos;
 
 import java.util.ArrayList;
 
 public class ChatFragment extends Fragment {
-
-    public static ArrayList<String> lista_chats_desbloqueados=new ArrayList<>();
-
+    /*esta lista la declaramos como estatica porque hacemos uso d ella en otra clase(MyadapterMuro)
+    * donde si el usuario ingresa la contraseña correcta desbloquea esa conversacion y la anadimos desde alla para aqui*/
+    //public static ArrayList<String> lista_chats_desbloqueados=new ArrayList<>();
+    ChatFavoritos dbhelper;
+    SQLiteDatabase db;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        dbhelper=new ChatFavoritos(getContext());
+        db=dbhelper.getReadableDatabase();
         View V=inflater.inflate(R.layout.fragment_chat, container, false);
         RecyclerView r=V.findViewById(R.id.recy_chats);
-        MyAdapterChatsDesbloqueados adapter=new MyAdapterChatsDesbloqueados(getContext(),lista_chats_desbloqueados);
+        MyAdapterChatsDesbloqueados adapter=new MyAdapterChatsDesbloqueados(getContext(),ChatFavoritos.getAllIncidencies(db));
         r.setAdapter(adapter);
         r.setLayoutManager(new LinearLayoutManager(getContext()));
-        //lista_chats_desbloqueados.clear();
         return V;
 
     }

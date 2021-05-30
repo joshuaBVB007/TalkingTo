@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 
 public class MiMuroFragment extends Fragment {
-
+    //recoge todas las chats creados por los usuarios de la app y las muestra en MimuroFragment
     public  ArrayList<Chat> lista_chats=new ArrayList<>();
     RecyclerView r;
     View V;
@@ -32,17 +32,14 @@ public class MiMuroFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         /*Lo unico que hace este fragment es lanzar nuestra vista que contiene todas las conversaciones
-        * de esta aplicaciony que se reflejan en el muro*/
+        * de esta aplicacion que se reflejan en el muro*/
         V=inflater.inflate(R.layout.fragment_muro, container, false);
-        //rellenamos el arraylist con los chats del firebase
         ingresarChatsDelMuro();
-        //se lo pasamos al adapter pa que los lea
-
         return V;
     }
 
     public void ingresarChatsDelMuro(){
-        //PARA DESCARGAR LOS CHATS Y RELLENAR LA LISTA
+        //Descargamos los chats del firebase y los añadirmos a la lista y lanzamos el recycler
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("conversaciones");
         myRef.addValueEventListener(new ValueEventListener() {

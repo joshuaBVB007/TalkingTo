@@ -1,22 +1,27 @@
 package com.example.firebase_chat.Adaptador;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.firebase_chat.R;
+import com.example.firebase_chat.WindowsChat;
+import com.example.firebase_chat.fichero_chat.Chat;
+
 import java.util.ArrayList;
 
 public class MyAdapterChatsDesbloqueados extends RecyclerView.Adapter<MyAdapterChatsDesbloqueados.MyViewHolder> {
 
-    ArrayList<String> lista;
+    ArrayList<Chat> lista;
     Context con;
 
-    public MyAdapterChatsDesbloqueados(Context con,ArrayList<String> lista){
+    public MyAdapterChatsDesbloqueados(Context con,ArrayList<Chat> lista){
         this.con=con;
         this.lista=lista;
     }
@@ -31,7 +36,17 @@ public class MyAdapterChatsDesbloqueados extends RecyclerView.Adapter<MyAdapterC
 
     @Override
     public void onBindViewHolder(@NonNull MyAdapterChatsDesbloqueados.MyViewHolder holder, int position) {
-       holder.nom.setText(lista.get(position));
+       holder.nom.setText(lista.get(position).getContrasena_reu());
+       //Ponemos la vista a la escucha.
+       holder.itemView.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               AppCompatActivity activity = (AppCompatActivity)v.getContext();
+               Intent intent=new Intent(activity.getApplication(), WindowsChat.class);
+               intent.putExtra("DeQueConversacionSeTrata",lista.get(position).getContrasena_reu());
+               activity.startActivity(intent);
+           }
+       });
     }
 
     @Override

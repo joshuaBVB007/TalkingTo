@@ -18,8 +18,9 @@
 
             <TextView
                 android:id="@+id/nom_reunion"
-                android:layout_width="82dp"
-                android:layout_height="25dp"
+                android:layout_width="269dp"
+                android:layout_height="24dp"
+                android:gravity="center"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

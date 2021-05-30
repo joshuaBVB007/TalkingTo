@@ -3,6 +3,7 @@ package com.example.firebase_chat.Adaptador;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,19 +62,17 @@ public class MyAdapterChatMuro extends RecyclerView.Adapter<MyAdapterChatMuro.My
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //si la contraseña introducida por el usuario es igual al dato contraseña del recycler entras
                         if(input.getText().toString().equals(dato.contrasena_reu)){
-
                             //Aqui necesitamos agregar el chat desbloqueado
-                            ChatFragment.lista_chats_desbloqueados.add(dato.getNombre_reu());
+                            //ChatFragment.lista_chats_desbloqueados.add(dato.getNombre_reu());
+                            Menu.dbhelper.insertIncidencia(Menu.db,new Chat(dato.getNombre_reu(),dato.getContrasena_reu()));
+                            Log.i("sql mi chat", "Agregado a favoritos ");
 
                             AppCompatActivity activity = (AppCompatActivity)v.getContext();
                             Intent intent=new Intent(activity.getApplication(),WindowsChat.class);
                             intent.putExtra("DeQueConversacionSeTrata",dato.nombre_reu);
                             activity.startActivity(intent);
-
                         }else{
-
                             Toast.makeText(con,"Contraseña incorrecta",Toast.LENGTH_SHORT).show();
-
                         }
                     }
                 });

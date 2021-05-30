@@ -32,39 +32,60 @@
 
             <TextView
                 android:id="@+id/nom_view"
-                android:layout_width="200dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="1dp"
+                android:layout_width="277dp"
+                android:layout_height="51dp"
                 android:text="TextView"
                 android:textColor="@color/teal_200"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toTopOf="@+id/desc_view"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.219"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.384"
+                app:layout_constraintStart_toEndOf="@+id/textView4"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.4" />
+                app:layout_constraintVertical_bias="0.357" />
 
             <TextView
                 android:id="@+id/desc_view"
-                android:layout_width="200dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="44dp"
-                android:layout_marginBottom="36dp"
+                android:layout_width="218dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="28dp"
                 android:text="TextView"
                 android:textColor="@color/teal_200"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/textView5" />
 
             <Button
                 android:id="@+id/open_chat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:text="Abrir chat"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.818"
-                app:layout_constraintStart_toEndOf="@+id/desc_view"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/desc_view" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:text="Nombre reunión:"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="36dp"
+                android:text="Clave:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

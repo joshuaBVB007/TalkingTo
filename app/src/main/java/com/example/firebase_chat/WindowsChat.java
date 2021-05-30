@@ -26,6 +26,8 @@ public class WindowsChat extends AppCompatActivity {
     //este edittect contiene las letras que componen mi mensaje
     EditText cuerpomensaje;
     DatabaseReference myRef;
+    MyAdapterMensajes adapter;
+    RecyclerView r;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,12 @@ public class WindowsChat extends AppCompatActivity {
         cuerpomensaje=findViewById(R.id.cuerpoMensaje);
         DescargaMensajesDelChats();
 
+
+
+
     }
+
+
 
     public void DescargaMensajesDelChats(){
         //PARA DESCARGAR LOS CHATS Y RELLENAR LA LISTA
@@ -50,10 +57,13 @@ public class WindowsChat extends AppCompatActivity {
                         Chat dato=snapshot.getValue(Chat.class);
                         mensajes_del_chat.add(dato);
                     }
-                    RecyclerView r=findViewById(R.id.recycler_vista_mensajes);
-                    MyAdapterMensajes adapter=new MyAdapterMensajes(WindowsChat.this,mensajes_del_chat);
+                    r=findViewById(R.id.recycler_vista_mensajes);
+                    adapter=new MyAdapterMensajes(WindowsChat.this,mensajes_del_chat);
                     r.setAdapter(adapter);
                     r.setLayoutManager(new LinearLayoutManager(WindowsChat.this));
+                    //linea de codigo que hace que baje al ultimo mensaje insertado
+                    r.scrollToPosition(mensajes_del_chat.size()-1);
+
                 }
                 Log.i("T", "Cantidad de mensajes de este chat son : "+ mensajes_del_chat.size());
             }
@@ -65,10 +75,11 @@ public class WindowsChat extends AppCompatActivity {
     }
 
     public void EnviarMensaje(View V){
-        //Aqui va el codigo para subir el mensaje a firebase
         String mensaje=cuerpomensaje.getText().toString();
-        myRef.child(myRef.push().getKey()).setValue(new Chat("jonathan","Calderon",mensaje));
+        myRef.child(myRef.push().getKey()).setValue(new Chat("Mensaje enviado por: jonathan","Calderon",mensaje));
         DescargaMensajesDelChats();
     }
+
+
 
 }

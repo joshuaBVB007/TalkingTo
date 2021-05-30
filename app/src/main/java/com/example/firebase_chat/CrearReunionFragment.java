@@ -19,39 +19,33 @@ import java.util.HashMap;
 
 public class CrearReunionFragment extends Fragment {
     View V;
-    DatabaseReference mData= FirebaseDatabase.getInstance().getReference();
-
-
-
-
+    EditText nom;
+    EditText pass;
+    Button crear;
+    DatabaseReference mData;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         V= inflater.inflate(R.layout.fragment_crear_reunion, container, false);
 
-        EditText nom=V.findViewById(R.id.nombre_reunion);
-        EditText pass=V.findViewById(R.id.password);
-        Button crear=V.findViewById(R.id.crear_button);
+        nom=V.findViewById(R.id.nombre_reunion);
+        pass=V.findViewById(R.id.password);
+        crear=V.findViewById(R.id.crear_button);
+        mData=FirebaseDatabase.getInstance().getReference();
 
-
-
+        //metodo que ingresa jsons en firebase
         crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String nombre_del_chat=nom.getText().toString();
                 String pass_chat=pass.getText().toString();
-
-                //Creamos el chat en forebase con el nombre de que le de el usuario
+                //Crea el chat padre
                 mData.child("conversaciones").child(nombre_del_chat).setValue(new Chat(nombre_del_chat,pass_chat));
-
-                /*creamos el chat interno:contiene las propiedades de mi chat que son nombre,clavey la conversacion
-                interna que siempre se llamará mensajes mas un json hijo que se llama Bienvenidos y un objeto que es mi
-                mensaje inicial para que el json se cree*/
+                //Crea el chat hijo que contiene la conversacio donde se almacenarán los mensajes.
                 mData.child("conversaciones").child(nombre_del_chat)
-                        .child("Mensajes").child("Bienvenidos").setValue(new Chat(nombre_del_chat,"Default","Default"));
-
+                        .child("Mensajes").child("Bienvenidos")
+                        .setValue(new Chat(nombre_del_chat,"Default","Bienvenidos a la reunion:"));
             }
         });
 
