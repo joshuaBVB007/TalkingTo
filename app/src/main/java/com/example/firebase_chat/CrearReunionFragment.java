@@ -39,7 +39,7 @@ public class CrearReunionFragment extends Fragment {
         crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Menu.lista_chats.clear();
+
                 String nombre_del_chat=nom.getText().toString();
                 String pass_chat=pass.getText().toString();
 

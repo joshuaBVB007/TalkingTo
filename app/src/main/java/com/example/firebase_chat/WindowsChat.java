@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 
 import com.example.firebase_chat.Adaptador.MyAdapterMensajes;
 import com.example.firebase_chat.fichero_chat.Chat;
@@ -21,23 +23,29 @@ public class WindowsChat extends AppCompatActivity {
     //este arraylist será el que nos mostrara todos nuestros mensajes
     ArrayList<Chat> mensajes_del_chat=new ArrayList<>();
     String receptor;
+    //este edittect contiene las letras que componen mi mensaje
+    EditText cuerpomensaje;
+    DatabaseReference myRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_windows_chat);
-        //
+        cuerpomensaje=findViewById(R.id.cuerpoMensaje);
         DescargaMensajesDelChats();
+
     }
 
     public void DescargaMensajesDelChats(){
         //PARA DESCARGAR LOS CHATS Y RELLENAR LA LISTA
+
         receptor=getIntent().getStringExtra("DeQueConversacionSeTrata");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("conversaciones").child(receptor).child("Mensajes");
+        myRef = database.getReference("conversaciones").child(receptor).child("Mensajes");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
+                    mensajes_del_chat.clear();
                     for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                         Chat dato=snapshot.getValue(Chat.class);
                         mensajes_del_chat.add(dato);
@@ -56,5 +64,11 @@ public class WindowsChat extends AppCompatActivity {
         });
     }
 
+    public void EnviarMensaje(View V){
+        //Aqui va el codigo para subir el mensaje a firebase
+        String mensaje=cuerpomensaje.getText().toString();
+        myRef.child(myRef.push().getKey()).setValue(new Chat("jonathan","Calderon",mensaje));
+        DescargaMensajesDelChats();
+    }
 
 }

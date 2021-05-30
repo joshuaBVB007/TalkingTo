@@ -28,6 +28,7 @@ public class ChatFragment extends Fragment {
         MyAdapterChatsDesbloqueados adapter=new MyAdapterChatsDesbloqueados(getContext(),lista_chats_desbloqueados);
         r.setAdapter(adapter);
         r.setLayoutManager(new LinearLayoutManager(getContext()));
+        //lista_chats_desbloqueados.clear();
         return V;
 
     }

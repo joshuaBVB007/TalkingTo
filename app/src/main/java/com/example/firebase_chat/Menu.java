@@ -20,8 +20,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Menu extends AppCompatActivity {
-    //es la lista que se muestra en frgamnet de chat
-    public static ArrayList<Chat> lista_chats=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,32 +33,5 @@ public class Menu extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_menu);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
-        //Ingresamos todos los chats del muro al cargar el menu
-        ingresarChats();
-
     }
-
-    public void ingresarChats(){
-        //PARA DESCARGAR LOS CHATS Y RELLENAR LA LISTA
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("conversaciones");
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                    for (DataSnapshot snapshot: dataSnapshot.getChildren()){
-                        Chat dato=snapshot.getValue(Chat.class);
-                        lista_chats.add(dato);
-                    }
-                }
-                Log.i("T", "onDataChange: "+ lista_chats.size());
-            }
-            @Override
-            public void onCancelled(DatabaseError error) {
-                Log.w("TAG_2", "Failed to read value.", error.toException());
-            }
-        });
-    }
-
 }
