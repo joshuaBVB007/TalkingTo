@@ -2,7 +2,7 @@
 <resources>
     <color name="purple_200">#F1DF04</color>
     <!--Colores de los encabezados-->
-    <color name="purple_700">#F1DF04</color>
+    <color name="purple_700">#04F1B8</color>
 
 
     <color name="teal_200">#B05384</color>
@@ -10,4 +10,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="amarillo">#F1DF04</color>
+    <color name="rojizo">#F1046C</color>
 </resources>

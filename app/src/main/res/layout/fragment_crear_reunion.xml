@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="chat-with-us.json"
+            app:lottie_fileName="chat-with-us_verde.json"
             app:lottie_imageAssetsFolder="assets"
             app:lottie_loop="true"
             tools:ignore="MissingConstraints" />
@@ -30,8 +30,8 @@
             android:id="@+id/nombre_reunion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="@color/amarillo"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/purple_700"
             android:ems="10"
             android:hint="Nombre reunion"
             android:inputType="textPersonName"
@@ -41,12 +41,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/animation_view" />
 
+
         <EditText
             android:id="@+id/password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/amarillo"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/purple_700"
             android:ems="10"
             android:hint="Contraseña"
             android:inputType="textPassword"
@@ -55,7 +56,6 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nombre_reunion" />
-
 
         <Button
             android:id="@+id/crear_button"
@@ -71,16 +71,15 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animation_view2"
-            android:layout_width="300dp"
-            android:layout_height="129dp"
+            android:layout_width="378dp"
+            android:layout_height="266dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/crear_button"
-            app:layout_constraintVertical_bias="0.979"
+            app:layout_constraintVertical_bias="0.846"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="messages.json"
+            app:lottie_fileName="tio_escribiendo.json"
             app:lottie_imageAssetsFolder="assets"
             app:lottie_loop="true"
             tools:ignore="MissingConstraints" />
