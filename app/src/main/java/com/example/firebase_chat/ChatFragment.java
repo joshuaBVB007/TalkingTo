@@ -23,14 +23,17 @@ public class ChatFragment extends Fragment {
     //public static ArrayList<String> lista_chats_desbloqueados=new ArrayList<>();
     ChatFavoritos dbhelper;
     SQLiteDatabase db;
+    public static RecyclerView r;
+    public static MyAdapterChatsDesbloqueados adapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         dbhelper=new ChatFavoritos(getContext());
         db=dbhelper.getReadableDatabase();
         View V=inflater.inflate(R.layout.fragment_chat, container, false);
-        RecyclerView r=V.findViewById(R.id.recy_chats);
-        MyAdapterChatsDesbloqueados adapter=new MyAdapterChatsDesbloqueados(getContext(),ChatFavoritos.getAllIncidencies(db));
+        r=V.findViewById(R.id.recy_chats);
+        adapter=new MyAdapterChatsDesbloqueados(getContext(),ChatFavoritos.getAllIncidencies(db));
         r.setAdapter(adapter);
         r.setLayoutManager(new LinearLayoutManager(getContext()));
         return V;

@@ -59,6 +59,11 @@ public class ChatFavoritos extends SQLiteOpenHelper {
         }
     }
 
+    public static void Eliminar_Incidencia_ID(SQLiteDatabase db, int position) {
+        String deleteCall = "DELETE FROM " + "Chats" + " WHERE " + "ID" + " = " + position;
+        db.execSQL(deleteCall);
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 
