@@ -34,10 +34,6 @@ public class WindowsChat extends AppCompatActivity {
         setContentView(R.layout.activity_windows_chat);
         cuerpomensaje=findViewById(R.id.cuerpoMensaje);
         DescargaMensajesDelChats();
-
-
-
-
     }
 
 
@@ -76,7 +72,8 @@ public class WindowsChat extends AppCompatActivity {
 
     public void EnviarMensaje(View V){
         String mensaje=cuerpomensaje.getText().toString();
-        myRef.child(myRef.push().getKey()).setValue(new Chat("Mensaje enviado por: jonathan","Calderon",mensaje));
+        myRef.child(myRef.push().getKey()).setValue(new Chat("Mensaje enviado por: "+FirebaseActivity.usuario_en_activo_de_firebase.getEmail(),"Calderon",mensaje));
+        cuerpomensaje.setText("");
         DescargaMensajesDelChats();
     }
 

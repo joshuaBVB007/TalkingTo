@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(MainActivity.this, Menu.class);
+                Intent intent=new Intent(MainActivity.this, FirebaseActivity.class);
                 startActivity(intent);
                 finish();
             }
