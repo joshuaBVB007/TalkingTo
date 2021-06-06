@@ -1,5 +1,6 @@
 package com.example.firebase_chat;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -33,6 +34,7 @@ public class PerfilFragment extends Fragment {
 
         current_u.setText(FirebaseActivity.usuario_en_activo_de_firebase.getEmail());
 
+
         button_establecerNick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +50,7 @@ public class PerfilFragment extends Fragment {
                 Toast.makeText(getContext(),"Ahora eres: "+WindowsChat.Nick,Toast.LENGTH_SHORT).show();
             }
         });
+
 
         return V;
     }

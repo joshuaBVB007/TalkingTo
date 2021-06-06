@@ -105,5 +105,6 @@
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toEndOf="@+id/button_ponerNick"
             app:layout_constraintTop_toBottomOf="@+id/nickname" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

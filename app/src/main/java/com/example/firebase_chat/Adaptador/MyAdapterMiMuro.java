@@ -26,7 +26,7 @@ import com.example.firebase_chat.fichero_chat.Chat;
 
 import java.util.ArrayList;
 
-public class MyAdapterMiMuro extends RecyclerView.Adapter<MyAdapterMiMuro.MyViewHolder> {
+public class MyAdapterMiMuro extends RecyclerView.Adapter<MyAdapterMiMuro.MyViewHolder> implements Filterable {
 
     Context con;
     ArrayList<Chat> lista;
@@ -113,5 +113,38 @@ public class MyAdapterMiMuro extends RecyclerView.Adapter<MyAdapterMiMuro.MyView
             button=itemView.findViewById(R.id.open_chat);
         }
     }
+
+    @Override
+    public Filter getFilter() {
+        return example_filter1;
+    }
+
+    private Filter example_filter1=new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<Chat> filteredList=new ArrayList<>();
+            if (constraint == null || constraint.length() == 0){
+                filteredList.addAll(lista_full);
+            }else{
+                filter=constraint.toString().toLowerCase().trim();
+                for (Chat item:lista_full){
+                    if (item.getNombre_reu().toLowerCase().contains(filter)){
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results=new FilterResults();
+            results.values=filteredList;
+            return results;
+        }
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            lista.clear();
+            lista.addAll((ArrayList)results.values);
+            notifyDataSetChanged();
+        }
+    };
+
+
 
 }

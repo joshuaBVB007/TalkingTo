@@ -44,7 +44,6 @@ public class FirebaseActivity extends AppCompatActivity {
         SharedPreferences mispreferencias2=getSharedPreferences("datos2", Context.MODE_PRIVATE);
         contraseñaFire.setText(mispreferencias2.getString("contra","example"));
 
-
     }
 
 

@@ -65,8 +65,6 @@ public class Menu extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 if(Menu.Buscador_position==0){
                     MiMuroFragment.adapter.getFilter().filter(newText);
-                }else if(Menu.Buscador_position==1){
-                    ChatFragment.adapter.getFilter().filter(newText);
                 }
                 return false;
             }

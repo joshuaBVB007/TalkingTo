@@ -31,7 +31,7 @@ import java.util.ArrayList;
 
 import static com.example.firebase_chat.ChatFragment.r;
 
-public class MyAdapterChatsDesbloqueados extends RecyclerView.Adapter<MyAdapterChatsDesbloqueados.MyViewHolder> implements Filterable {
+public class MyAdapterChatsDesbloqueados extends RecyclerView.Adapter<MyAdapterChatsDesbloqueados.MyViewHolder>  {
 
     ArrayList<Chat> lista;
     Context con;
@@ -92,38 +92,5 @@ public class MyAdapterChatsDesbloqueados extends RecyclerView.Adapter<MyAdapterC
             bote_basura=itemView.findViewById(R.id.bote_de_basura);
         }
     }
-
-
-    @Override
-    public Filter getFilter() {
-        return example_filter1;
-    }
-
-    private Filter example_filter1=new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<Chat> filteredList=new ArrayList<>();
-            if (constraint == null || constraint.length() == 0){
-                filteredList.addAll(lista_full);
-            }else{
-                filter=constraint.toString().toLowerCase().trim();
-                for (Chat item:lista_full){
-                    if (item.getNombre_reu().toLowerCase().contains(filter)){
-                        filteredList.add(item);
-                    }
-                }
-            }
-            FilterResults results=new FilterResults();
-            results.values=filteredList;
-            return results;
-        }
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            lista.clear();
-            lista.addAll((ArrayList)results.values);
-            notifyDataSetChanged();
-        }
-    };
-
 
 }
