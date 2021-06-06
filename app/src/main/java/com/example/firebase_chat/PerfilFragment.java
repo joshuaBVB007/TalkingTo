@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PerfilFragment extends Fragment {
 
@@ -36,6 +37,7 @@ public class PerfilFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 WindowsChat.Nick=nickname_edit.getText().toString();
+                Toast.makeText(getContext(),"Ahora eres: "+WindowsChat.Nick,Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -43,6 +45,7 @@ public class PerfilFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 WindowsChat.Nick=FirebaseActivity.usuario_en_activo_de_firebase.getEmail();
+                Toast.makeText(getContext(),"Ahora eres: "+WindowsChat.Nick,Toast.LENGTH_SHORT).show();
             }
         });
 

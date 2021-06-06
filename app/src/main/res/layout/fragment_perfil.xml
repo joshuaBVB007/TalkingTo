@@ -14,12 +14,12 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="124dp"
+            android:layout_marginTop="64dp"
             android:text="MiPerfil"
             android:textSize="36sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/animation_view" />
 
         <TextView
             android:id="@+id/textView9"
@@ -48,15 +48,11 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animation_view"
-            android:layout_width="306dp"
-            android:layout_height="213dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="60dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="323dp"
+            android:layout_height="218dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.582"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
             app:lottie_fileName="home.json"
             app:lottie_imageAssetsFolder="assets"
