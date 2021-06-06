@@ -25,6 +25,7 @@ import java.util.ArrayList;
 public class MiMuroFragment extends Fragment {
     //recoge todas las chats creados por los usuarios de la app y las muestra en MimuroFragment
     public  ArrayList<Chat> lista_chats=new ArrayList<>();
+    static MyAdapterMiMuro adapter;
     RecyclerView r;
     View V;
     @Override
@@ -35,6 +36,7 @@ public class MiMuroFragment extends Fragment {
         * de esta aplicacion que se reflejan en el muro*/
         V=inflater.inflate(R.layout.fragment_muro, container, false);
         ingresarChatsDelMuro();
+        Menu.Buscador_position=0;
         return V;
     }
 
@@ -51,7 +53,7 @@ public class MiMuroFragment extends Fragment {
                         lista_chats.add(dato);
                     }
                     r=V.findViewById(R.id.recy_muro);
-                    MyAdapterMiMuro adapter=new MyAdapterMiMuro(getContext(),lista_chats);
+                    adapter=new MyAdapterMiMuro(getContext(),lista_chats);
                     r.setAdapter(adapter);
                     r.setLayoutManager(new LinearLayoutManager(getContext()));
                 }

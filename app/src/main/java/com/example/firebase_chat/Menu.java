@@ -9,6 +9,9 @@ import androidx.navigation.ui.NavigationUI;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.SearchView;
 
 import com.example.firebase_chat.DB.ChatFavoritos;
 import com.example.firebase_chat.fichero_chat.Chat;
@@ -22,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class Menu extends AppCompatActivity {
-
+    static int Buscador_position=0;
     public static ChatFavoritos dbhelper;
     public static SQLiteDatabase db;
 
@@ -45,4 +48,31 @@ public class Menu extends AppCompatActivity {
 
 
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.mi_buscador,menu);
+        MenuItem searchitem=menu.findItem(R.id.action_search);
+        SearchView searchView=(SearchView)searchitem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if(Menu.Buscador_position==0){
+                    MiMuroFragment.adapter.getFilter().filter(newText);
+                }else if(Menu.Buscador_position==1){
+                    ChatFragment.adapter.getFilter().filter(newText);
+                }
+                return false;
+            }
+        });
+        return true;
+    }
+
+
 }

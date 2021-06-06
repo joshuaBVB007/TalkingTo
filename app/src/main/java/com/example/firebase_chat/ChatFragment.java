@@ -33,6 +33,7 @@ public class ChatFragment extends Fragment {
         adapter=new MyAdapterChatsDesbloqueados(getContext(),ChatFavoritos.getAllIncidencies(db));
         r.setAdapter(adapter);
         r.setLayoutManager(new LinearLayoutManager(getContext()));
+
         return V;
 
     }

@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,14 +31,17 @@ import java.util.ArrayList;
 
 import static com.example.firebase_chat.ChatFragment.r;
 
-public class MyAdapterChatsDesbloqueados extends RecyclerView.Adapter<MyAdapterChatsDesbloqueados.MyViewHolder> {
+public class MyAdapterChatsDesbloqueados extends RecyclerView.Adapter<MyAdapterChatsDesbloqueados.MyViewHolder> implements Filterable {
 
     ArrayList<Chat> lista;
     Context con;
+    static String filter;
+    ArrayList<Chat> lista_full;
 
     public MyAdapterChatsDesbloqueados(Context con,ArrayList<Chat> lista){
         this.con=con;
         this.lista=lista;
+        lista_full=new ArrayList<>(lista);
     }
 
     @NonNull
@@ -87,6 +92,38 @@ public class MyAdapterChatsDesbloqueados extends RecyclerView.Adapter<MyAdapterC
             bote_basura=itemView.findViewById(R.id.bote_de_basura);
         }
     }
+
+
+    @Override
+    public Filter getFilter() {
+        return example_filter1;
+    }
+
+    private Filter example_filter1=new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<Chat> filteredList=new ArrayList<>();
+            if (constraint == null || constraint.length() == 0){
+                filteredList.addAll(lista_full);
+            }else{
+                filter=constraint.toString().toLowerCase().trim();
+                for (Chat item:lista_full){
+                    if (item.getNombre_reu().toLowerCase().contains(filter)){
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results=new FilterResults();
+            results.values=filteredList;
+            return results;
+        }
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            lista.clear();
+            lista.addAll((ArrayList)results.values);
+            notifyDataSetChanged();
+        }
+    };
 
 
 }

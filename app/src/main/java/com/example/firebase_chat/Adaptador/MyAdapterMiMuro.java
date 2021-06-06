@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,11 +30,15 @@ public class MyAdapterMiMuro extends RecyclerView.Adapter<MyAdapterMiMuro.MyView
 
     Context con;
     ArrayList<Chat> lista;
+    static String filter;
+    //lista full es la copia que voy a utilizar con filterable
+    ArrayList<Chat> lista_full;
 
 
     public MyAdapterMiMuro(Context con, ArrayList<Chat> lista){
         this.con=con;
         this.lista=lista;
+        lista_full=new ArrayList<>(lista);
     }
 
     @NonNull
@@ -107,4 +113,5 @@ public class MyAdapterMiMuro extends RecyclerView.Adapter<MyAdapterMiMuro.MyView
             button=itemView.findViewById(R.id.open_chat);
         }
     }
+
 }
