@@ -23,6 +23,7 @@ public class WindowsChat extends AppCompatActivity {
     //este arraylist será el que nos mostrara todos nuestros mensajes
     ArrayList<Chat> mensajes_del_chat=new ArrayList<>();
     String receptor;
+    public static String Nick=FirebaseActivity.usuario_en_activo_de_firebase.getEmail();
     //este edittect contiene las letras que componen mi mensaje
     EditText cuerpomensaje;
     DatabaseReference myRef;
@@ -72,7 +73,7 @@ public class WindowsChat extends AppCompatActivity {
 
     public void EnviarMensaje(View V){
         String mensaje=cuerpomensaje.getText().toString();
-        myRef.child(myRef.push().getKey()).setValue(new Chat("Mensaje enviado por: "+FirebaseActivity.usuario_en_activo_de_firebase.getEmail(),"Calderon",mensaje));
+        myRef.child(myRef.push().getKey()).setValue(new Chat("Mensaje enviado por: "+Nick,"Calderon",mensaje));
         cuerpomensaje.setText("");
         DescargaMensajesDelChats();
     }

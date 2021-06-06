@@ -26,18 +26,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:text="Nombre usuario:"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/currentuser"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="40dp"
             android:text="Undefined"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,17 +48,15 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animation_view"
-            android:layout_width="359dp"
-            android:layout_height="369dp"
+            android:layout_width="306dp"
+            android:layout_height="213dp"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.769"
+            app:layout_constraintHorizontal_bias="0.582"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nickname"
-            app:layout_constraintVertical_bias="1.0"
             app:lottie_autoPlay="true"
             app:lottie_fileName="home.json"
             app:lottie_imageAssetsFolder="assets"
@@ -88,6 +86,28 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.173"
             app:layout_constraintStart_toEndOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+            app:layout_constraintTop_toBottomOf="@+id/currentuser" />
+
+        <Button
+            android:id="@+id/button_ponerNick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="30dp"
+            android:text="Establecer nick"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nickname" />
+
+        <Button
+            android:id="@+id/button_quitarNick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="28dp"
+            android:text="Quitar Nick"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toEndOf="@+id/button_ponerNick"
+            app:layout_constraintTop_toBottomOf="@+id/nickname" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
