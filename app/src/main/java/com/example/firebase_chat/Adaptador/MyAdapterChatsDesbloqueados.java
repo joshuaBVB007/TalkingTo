@@ -49,7 +49,7 @@ public class MyAdapterChatsDesbloqueados extends RecyclerView.Adapter<MyAdapterC
 
     @Override
     public void onBindViewHolder(@NonNull MyAdapterChatsDesbloqueados.MyViewHolder holder, int position) {
-       holder.nom.setText(lista.get(position).getNombre_reu());
+       holder.nom.setText(lista.get(position).getContrasena_reu());
        //Ponemos la vista a la escucha.
        holder.bote_basura.setOnClickListener(new View.OnClickListener() {
            @Override

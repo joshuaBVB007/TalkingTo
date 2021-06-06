@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.firebase_chat.fichero_chat.Chat;
 import com.google.firebase.database.DatabaseReference;
@@ -46,6 +47,7 @@ public class CrearReunionFragment extends Fragment {
                 mData.child("conversaciones").child(nombre_del_chat)
                         .child("Mensajes").child("Bienvenidos")
                         .setValue(new Chat(nombre_del_chat,"Default","Bienvenidos a la reunion:"));
+                Toast.makeText(getContext(),"Reunión creada con éxito",Toast.LENGTH_SHORT).show();
             }
         });
 
