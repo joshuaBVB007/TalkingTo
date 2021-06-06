@@ -14,25 +14,25 @@ import com.example.firebase_chat.fichero_chat.Chat;
 
 import java.util.ArrayList;
 
-public class MyAdapterMensajes extends RecyclerView.Adapter<MyAdapterMensajes.MyViewHolder> {
+public class MyAdapterMensajesDeLosChats extends RecyclerView.Adapter<MyAdapterMensajesDeLosChats.MyViewHolder> {
 
     Context con;
     ArrayList<Chat> lista;
-    public MyAdapterMensajes(Context con,ArrayList<Chat> lista){
+    public MyAdapterMensajesDeLosChats(Context con, ArrayList<Chat> lista){
         this.con=con;
         this.lista=lista;
     }
 
     @NonNull
     @Override
-    public MyAdapterMensajes.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyAdapterMensajesDeLosChats.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater=LayoutInflater.from(con);
         View V=inflater.inflate(R.layout.my_mensajes_de_los_chats_internos,parent,false);
-        return new MyAdapterMensajes.MyViewHolder(V);
+        return new MyAdapterMensajesDeLosChats.MyViewHolder(V);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyAdapterMensajes.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyAdapterMensajesDeLosChats.MyViewHolder holder, int position) {
         Chat dato=lista.get(position);
         holder.contenido.setText(dato.getNombre_reu());
         holder.usuario_que_lo_envia.setText(dato.getContenido());

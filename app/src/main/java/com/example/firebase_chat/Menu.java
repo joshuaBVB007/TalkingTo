@@ -37,7 +37,7 @@ public class Menu extends AppCompatActivity {
 
         BottomNavigationView navView = findViewById(R.id.btn);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.muroFragment, R.id.chatFragment, R.id.otroFragment)
+                R.id.muroFragment, R.id.chatFragment, R.id.otroFragment,R.id.perfilFragment)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_menu);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);

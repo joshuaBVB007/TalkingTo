@@ -11,11 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.firebase_chat.Adaptador.MyAdapterChatMuro;
 import com.example.firebase_chat.Adaptador.MyAdapterChatsDesbloqueados;
 import com.example.firebase_chat.DB.ChatFavoritos;
-
-import java.util.ArrayList;
 
 public class ChatFragment extends Fragment {
     /*esta lista la declaramos como estatica porque hacemos uso d ella en otra clase(MyadapterMuro)

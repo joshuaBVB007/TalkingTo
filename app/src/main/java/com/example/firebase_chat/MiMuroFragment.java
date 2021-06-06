@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.firebase_chat.Adaptador.MyAdapterChatMuro;
+import com.example.firebase_chat.Adaptador.MyAdapterMiMuro;
 import com.example.firebase_chat.fichero_chat.Chat;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -51,7 +51,7 @@ public class MiMuroFragment extends Fragment {
                         lista_chats.add(dato);
                     }
                     r=V.findViewById(R.id.recy_muro);
-                    MyAdapterChatMuro adapter=new MyAdapterChatMuro(getContext(),lista_chats);
+                    MyAdapterMiMuro adapter=new MyAdapterMiMuro(getContext(),lista_chats);
                     r.setAdapter(adapter);
                     r.setLayoutManager(new LinearLayoutManager(getContext()));
                 }

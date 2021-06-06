@@ -17,7 +17,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.firebase_chat.ChatFragment;
 import com.example.firebase_chat.Menu;
 import com.example.firebase_chat.R;
 import com.example.firebase_chat.WindowsChat;
@@ -25,13 +24,13 @@ import com.example.firebase_chat.fichero_chat.Chat;
 
 import java.util.ArrayList;
 
-public class MyAdapterChatMuro extends RecyclerView.Adapter<MyAdapterChatMuro.MyViewHolder> {
+public class MyAdapterMiMuro extends RecyclerView.Adapter<MyAdapterMiMuro.MyViewHolder> {
 
     Context con;
     ArrayList<Chat> lista;
 
 
-    public MyAdapterChatMuro(Context con, ArrayList<Chat> lista){
+    public MyAdapterMiMuro(Context con, ArrayList<Chat> lista){
         this.con=con;
         this.lista=lista;
     }
@@ -41,11 +40,11 @@ public class MyAdapterChatMuro extends RecyclerView.Adapter<MyAdapterChatMuro.My
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater=LayoutInflater.from(con);
         View V=inflater.inflate(R.layout.my_chats_muro,parent,false);
-        return new MyAdapterChatMuro.MyViewHolder(V);
+        return new MyAdapterMiMuro.MyViewHolder(V);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyAdapterChatMuro.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyAdapterMiMuro.MyViewHolder holder, int position) {
         Chat dato=lista.get(position);
         holder.nom.setText(dato.getNombre_reu());
         holder.desc.setText(dato.getContrasena_reu());

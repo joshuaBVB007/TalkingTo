@@ -20,4 +20,9 @@
         android:name="com.example.firebase_chat.CrearReunionFragment"
         android:label="fragment_otro"
         tools:layout="@layout/fragment_crear_reunion" />
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.firebase_chat.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
 </navigation>

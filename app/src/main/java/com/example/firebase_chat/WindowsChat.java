@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.firebase_chat.Adaptador.MyAdapterMensajes;
+import com.example.firebase_chat.Adaptador.MyAdapterMensajesDeLosChats;
 import com.example.firebase_chat.fichero_chat.Chat;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,7 +26,7 @@ public class WindowsChat extends AppCompatActivity {
     //este edittect contiene las letras que componen mi mensaje
     EditText cuerpomensaje;
     DatabaseReference myRef;
-    MyAdapterMensajes adapter;
+    MyAdapterMensajesDeLosChats adapter;
     RecyclerView r;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class WindowsChat extends AppCompatActivity {
                         mensajes_del_chat.add(dato);
                     }
                     r=findViewById(R.id.recycler_vista_mensajes);
-                    adapter=new MyAdapterMensajes(WindowsChat.this,mensajes_del_chat);
+                    adapter=new MyAdapterMensajesDeLosChats(WindowsChat.this,mensajes_del_chat);
                     r.setAdapter(adapter);
                     r.setLayoutManager(new LinearLayoutManager(WindowsChat.this));
                     //linea de codigo que hace que baje al ultimo mensaje insertado
