@@ -33,9 +33,6 @@ public class MyAdapterChatsDesbloqueados extends RecyclerView.Adapter<MyAdapterC
 
     ArrayList<Chat> lista;
     Context con;
-    AppCompatActivity activity;
-    public ChatFavoritos dbhelper;
-    public SQLiteDatabase db;
 
     public MyAdapterChatsDesbloqueados(Context con,ArrayList<Chat> lista){
         this.con=con;
@@ -68,7 +65,8 @@ public class MyAdapterChatsDesbloqueados extends RecyclerView.Adapter<MyAdapterC
        holder.itemView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Intent intent=new Intent(activity.getApplication(), WindowsChat.class);
+               AppCompatActivity activity=(AppCompatActivity)v.getContext();
+               Intent intent=new Intent(activity, WindowsChat.class);
                intent.putExtra("DeQueConversacionSeTrata",lista.get(position).getContrasena_reu());
                activity.startActivity(intent);
            }
