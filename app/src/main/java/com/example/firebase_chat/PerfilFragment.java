@@ -26,15 +26,16 @@ public class PerfilFragment extends Fragment {
         // Inflate the layout for this fragment
         View V= inflater.inflate(R.layout.fragment_perfil, container, false);
 
-        //aqui van los componentes de esta vista
+        //Aqui van los componentes de esta vista
         current_u=V.findViewById(R.id.currentuser);
         nickname_edit=V.findViewById(R.id.nickname);
         button_establecerNick =V.findViewById(R.id.button_ponerNick);
         button_quitarNick=V.findViewById(R.id.button_quitarNick);
 
+        //Coloca el nombre del usuario en el perfil
         current_u.setText(FirebaseActivity.usuario_en_activo_de_firebase.getEmail());
 
-
+        //Boton para establecer un nick durante este periodo en los chats ya no saldrá el nombre del correo sino el nick
         button_establecerNick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,6 +44,7 @@ public class PerfilFragment extends Fragment {
             }
         });
 
+        //Boton para quitar el nick establecido
         button_quitarNick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,8 +52,6 @@ public class PerfilFragment extends Fragment {
                 Toast.makeText(getContext(),"Ahora eres: "+WindowsChat.Nick,Toast.LENGTH_SHORT).show();
             }
         });
-
-
         return V;
     }
 

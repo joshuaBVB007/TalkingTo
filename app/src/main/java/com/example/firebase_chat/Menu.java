@@ -8,25 +8,16 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.SearchView;
 
-import com.example.firebase_chat.DB.ChatFavoritos;
-import com.example.firebase_chat.fichero_chat.Chat;
+import com.example.firebase_chat.DB.BBDD_ChatsDesbloqueados;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class Menu extends AppCompatActivity {
     static int Buscador_position=0;
-    public static ChatFavoritos dbhelper;
+    public static BBDD_ChatsDesbloqueados dbhelper;
     public static SQLiteDatabase db;
 
     @Override
@@ -35,7 +26,7 @@ public class Menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         //Esta clase solo se encarga de mostrar los fragments activados por el usuario:MimuroFragment,chatFragment,etc
-        dbhelper=new ChatFavoritos(Menu.this);
+        dbhelper=new BBDD_ChatsDesbloqueados(Menu.this);
         db=dbhelper.getWritableDatabase();
 
         BottomNavigationView navView = findViewById(R.id.btn);

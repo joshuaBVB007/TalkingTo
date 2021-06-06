@@ -14,12 +14,12 @@ import com.example.firebase_chat.fichero_chat.Chat;
 
 import java.util.ArrayList;
 
-public class ChatFavoritos extends SQLiteOpenHelper {
+public class BBDD_ChatsDesbloqueados extends SQLiteOpenHelper {
     private static final String query = "CREATE TABLE " + "Chats" +
             "(" + "ID" + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "NombreChat"+" TEXT,"+
             "Clave"+" TEXT)";
-    public ChatFavoritos(@Nullable Context context) {
+    public BBDD_ChatsDesbloqueados(@Nullable Context context) {
         super(context, "MisChats", null, 1);
         Log.i("SQL", "Tabla creada con exito: ");
     }

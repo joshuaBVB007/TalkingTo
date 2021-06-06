@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Este controlador se encarga de que dar un periodo de carga de 6 minutos antes de empezar la siguiente antivity
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -29,7 +30,5 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         }, 6000);
-
-
     }
 }

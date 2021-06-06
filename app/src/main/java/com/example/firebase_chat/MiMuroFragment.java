@@ -31,11 +31,11 @@ public class MiMuroFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         /*Lo unico que hace este fragment es lanzar nuestra vista que contiene todas las conversaciones
         * de esta aplicacion que se reflejan en el muro*/
         V=inflater.inflate(R.layout.fragment_muro, container, false);
         ingresarChatsDelMuro();
+        //Menu buscador posicion es para saber el buscador si esta en un fragmento o en otro
         Menu.Buscador_position=0;
         return V;
     }

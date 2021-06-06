@@ -12,13 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.firebase_chat.Adaptador.MyAdapterChatsDesbloqueados;
-import com.example.firebase_chat.DB.ChatFavoritos;
+import com.example.firebase_chat.DB.BBDD_ChatsDesbloqueados;
 
 public class ChatFragment extends Fragment {
     /*esta lista la declaramos como estatica porque hacemos uso d ella en otra clase(MyadapterMuro)
     * donde si el usuario ingresa la contraseña correcta desbloquea esa conversacion y la anadimos desde alla para aqui*/
     //public static ArrayList<String> lista_chats_desbloqueados=new ArrayList<>();
-    ChatFavoritos dbhelper;
+    BBDD_ChatsDesbloqueados dbhelper;
     SQLiteDatabase db;
     public static RecyclerView r;
     public static MyAdapterChatsDesbloqueados adapter;
@@ -26,11 +26,11 @@ public class ChatFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        dbhelper=new ChatFavoritos(getContext());
+        dbhelper=new BBDD_ChatsDesbloqueados(getContext());
         db=dbhelper.getReadableDatabase();
         View V=inflater.inflate(R.layout.fragment_chat, container, false);
         r=V.findViewById(R.id.recy_chats);
-        adapter=new MyAdapterChatsDesbloqueados(getContext(),ChatFavoritos.getAllIncidencies(db));
+        adapter=new MyAdapterChatsDesbloqueados(getContext(), BBDD_ChatsDesbloqueados.getAllIncidencies(db));
         r.setAdapter(adapter);
         r.setLayoutManager(new LinearLayoutManager(getContext()));
 

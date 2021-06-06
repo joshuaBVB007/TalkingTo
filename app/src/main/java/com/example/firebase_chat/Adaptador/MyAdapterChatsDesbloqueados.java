@@ -1,35 +1,24 @@
 package com.example.firebase_chat.Adaptador;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.airbnb.lottie.LottieAnimationView;
-import com.example.firebase_chat.ChatFragment;
-import com.example.firebase_chat.DB.ChatFavoritos;
 import com.example.firebase_chat.Menu;
 import com.example.firebase_chat.R;
 import com.example.firebase_chat.WindowsChat;
 import com.example.firebase_chat.fichero_chat.Chat;
 
 import java.util.ArrayList;
-
-import static com.example.firebase_chat.ChatFragment.r;
 
 public class MyAdapterChatsDesbloqueados extends RecyclerView.Adapter<MyAdapterChatsDesbloqueados.MyViewHolder>  {
 
