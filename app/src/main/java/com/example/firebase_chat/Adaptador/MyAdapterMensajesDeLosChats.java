@@ -36,6 +36,7 @@ public class MyAdapterMensajesDeLosChats extends RecyclerView.Adapter<MyAdapterM
         Chat dato=lista.get(position);
         holder.contenido.setText(dato.getNombre_reu());
         holder.usuario_que_lo_envia.setText(dato.getContenido());
+        holder.fecha.setText(dato.dimeFecha());
     }
 
     @Override
@@ -44,10 +45,12 @@ public class MyAdapterMensajesDeLosChats extends RecyclerView.Adapter<MyAdapterM
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView contenido;
         TextView usuario_que_lo_envia;
+        TextView fecha;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             contenido=itemView.findViewById(R.id.contenido);
             usuario_que_lo_envia=itemView.findViewById(R.id.usuario_que_lo_envia);
+            fecha=itemView.findViewById(R.id.fecha);
         }
     }
 }

@@ -73,7 +73,8 @@ public class WindowsChat extends AppCompatActivity {
 
     public void EnviarMensaje(View V){
         String mensaje=cuerpomensaje.getText().toString();
-        myRef.child(myRef.push().getKey()).setValue(new Chat("Mensaje enviado por: "+Nick,"Calderon",mensaje));
+        long fecha=(System.currentTimeMillis() / 1000);
+        myRef.child(myRef.push().getKey()).setValue(new Chat("Mensaje enviado por: "+Nick,"Calderon",mensaje,fecha));
         cuerpomensaje.setText("");
         DescargaMensajesDelChats();
     }
