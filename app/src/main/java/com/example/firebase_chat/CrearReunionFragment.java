@@ -42,11 +42,12 @@ public class CrearReunionFragment extends Fragment {
                 String nombre_del_chat=nom.getText().toString();
                 String pass_chat=pass.getText().toString();
                 //Crea el chat padre
+                long fecha=(System.currentTimeMillis() / 1000);
                 mData.child("conversaciones").child(nombre_del_chat).setValue(new Chat(nombre_del_chat,pass_chat));
                 //Crea el chat hijo que contiene la conversacio donde se almacenarán los mensajes.
                 mData.child("conversaciones").child(nombre_del_chat)
                         .child("Mensajes").child("Bienvenidos")
-                        .setValue(new Chat(nombre_del_chat,"Default","Bienvenidos a la reunion:"));
+                        .setValue(new Chat(nombre_del_chat,"Default","Bienvenidos a la reunion:",fecha));
                 Toast.makeText(getContext(),"Reunión creada con éxito",Toast.LENGTH_SHORT).show();
             }
         });
